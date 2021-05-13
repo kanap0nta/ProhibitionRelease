@@ -1,0 +1,50 @@
+@charset "utf-8";
+body {
+  width: 18em;
+  font-size: 1.0em;
+}
+
+.main .item-frame {
+  margin: 1rem auto;
+}
+.main .text {
+  vertical-align: middle;
+}
+.main label {
+  cursor: pointer;
+}
+.main .switch {
+  position: relative;
+}
+.main .switch:before, .main .switch:after {
+  content: "";
+  vertical-align: middle;
+  display: inline-block;
+  transition     : .1s;
+}
+.main .switch:before {
+  width: 2em;
+  height: 1em;
+  border: 2px solid #999999;
+  border-radius: 32px;
+  background: #FFFFFF;
+}
+.main .switch:after {
+  position: relative;
+  width: 1em;
+  height: 1em;
+  background: #999999;
+  border-radius: 50%;
+  left: -2.2em;
+}
+.main input {
+  display: none;
+}
+.main input:checked ~ .switch:before {
+  background: #FFFFFF;
+  border-color: #59B300;
+}
+.main input:checked ~ .switch:after {
+  background: #59B300;
+  left: -1.15em;
+}
