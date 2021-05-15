@@ -2,37 +2,46 @@
   "manifest_version": 2,
   "name": "Prohibition Release",
   "permissions": [
-    "storage"
+      "<all_urls>",
+      "storage",
+      "tabs"
   ],
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "icons": {
-    "48": "icons/icon_48.png",
-    "96": "icons/icon_96.png"
-  },
-  "browser_action": {
-    "default_icon": {
       "48": "icons/icon_48.png",
       "96": "icons/icon_96.png"
-    },
-    "default_title": "Prohibition Release options",
-    "default_popup": "options.html"
+  },
+  "browser_action": {
+      "default_icon": {
+          "48": "icons/icon_48.png",
+          "96": "icons/icon_96.png"
+      },
+      "default_title": "Prohibition Release options",
+      "default_popup": "options.html"
   },
   "options_ui": {
-    "page": "options.html",
-    "browser_style": true
+      "page": "options.html",
+      "browser_style": true
+  },
+  "background": {
+      "scripts": [
+          "backgroundListener.js",
+          "background.js"
+      ]
   },
   "content_scripts": [
-    {
-      "matches": [
-        "<all_urls>"
-      ],
-      "js": [
-        "prohibitionRelease.js"
-      ],
-      "run_at": "document_start",
-      "match_about_blank": true,
-      "all_frames": true
-    }
+      {
+          "matches": [
+              "<all_urls>"
+          ],
+          "js": [
+              "backgroundCaller.js",
+              "prohibitionRelease.js"
+          ],
+          "run_at": "document_start",
+          "match_about_blank": true,
+          "all_frames": true
+      }
   ]
 }
